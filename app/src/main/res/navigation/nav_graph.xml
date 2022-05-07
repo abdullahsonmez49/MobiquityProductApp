@@ -7,5 +7,24 @@
     <fragment
         android:id="@+id/productsFragment"
         android:name="com.mobiquity.productapp.ui.ProductsFragment"
-        android:label="ProductsFragment" />
+        android:label="ProductsFragment" >
+        <action
+            android:id="@+id/action_productsFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.mobiquity.productapp.ui.ProductDetailFragment"
+        android:label="ProductDetailFragment" >
+        <argument
+            android:name="product"
+            app:argType="com.mobiquity.productapp.data.Product" />
+    </fragment>
+        <argument
+            android:name="product"
+            app:argType="string" />
 </navigation>

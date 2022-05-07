@@ -27,17 +27,16 @@ class ProductsViewModel @Inject internal constructor(
         getSections()
     }
 
-
     private fun getSections() = viewModelScope.launch {
-        safeExchangeRatesCall()
+        safeSectionsCall()
     }
 
-    private suspend fun safeExchangeRatesCall() {
+    private suspend fun safeSectionsCall() {
         responseLiveData.postValue(Resource.Loading())
         try {
             if (hasInternetConnection(context)) {
                 val response = sourceRepository.getSections()
-                responseLiveData.postValue(handleExchangeRatesResponse(response))
+                responseLiveData.postValue(handleSectionsResponse(response))
             } else {
                 responseLiveData.postValue(Resource.Error("No Internet Connection"))
             }
@@ -49,7 +48,7 @@ class ProductsViewModel @Inject internal constructor(
         }
     }
 
-    private fun handleExchangeRatesResponse(response: Response<List<Section>>): Resource<List<Section>> {
+    private fun handleSectionsResponse(response: Response<List<Section>>): Resource<List<Section>> {
         if (response.isSuccessful) {
             response.body()?.let { resultResponse ->
                 return Resource.Success(resultResponse)

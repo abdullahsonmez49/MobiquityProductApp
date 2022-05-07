@@ -60,8 +60,8 @@ private class ListDiffCallback : DiffUtil.ItemCallback<Section>() {
     }
 
     override fun areContentsTheSame(oldItem: Section, newItem: Section): Boolean {
-        return oldItem.id == newItem.id &&
-                oldItem.description == newItem.description &&
-                oldItem.name == newItem.name
+        return oldItem.id == newItem.id
+                && oldItem.description == newItem.description
+                && oldItem.name == newItem.name
     }
 }

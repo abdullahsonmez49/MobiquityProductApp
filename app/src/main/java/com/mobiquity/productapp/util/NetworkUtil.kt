@@ -5,7 +5,6 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 
-
 class NetworkUtil {
     companion object {
         fun hasInternetConnection(context: Context): Boolean {

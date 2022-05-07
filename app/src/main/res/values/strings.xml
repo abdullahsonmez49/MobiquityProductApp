@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">ProductApp</string>
+    <string name="app_name">Product App</string>
+    <string name="saleprice">Price: %s %s</string>
 </resources>

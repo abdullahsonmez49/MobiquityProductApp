@@ -14,7 +14,7 @@ interface ApiService {
     suspend fun getSections(): Response<List<Section>>
 
     companion object {
-        private const val BASE_URL = "http://mobcategories.s3-website-eu-west-1.amazonaws.com/"
+        private const val BASE_URL = "http://mobcategories.s3-website-eu-west-1.amazonaws.com"
 
         fun create(): ApiService {
             val logger =

@@ -3,11 +3,13 @@ package com.mobiquity.productapp.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.mobiquity.productapp.data.Product
 import com.mobiquity.productapp.databinding.ItemProductBinding
+import com.mobiquity.productapp.ui.ProductsFragmentDirections
 
 class ProductAdapter : ListAdapter<Product, RecyclerView.ViewHolder>(ListItemDiffCallback()) {
 
@@ -41,7 +43,11 @@ class ProductAdapter : ListAdapter<Product, RecyclerView.ViewHolder>(ListItemDif
             product: Product,
             view: View
         ) {
-
+            val direction =
+                ProductsFragmentDirections.actionProductsFragmentToProductDetailFragment(
+                    product
+                )
+            view.findNavController().navigate(direction)
         }
 
         fun bind(item: Product) {
