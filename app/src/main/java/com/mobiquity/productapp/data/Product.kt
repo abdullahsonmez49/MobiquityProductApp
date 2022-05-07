@@ -1,6 +1,6 @@
 package com.mobiquity.productapp.data
 
-data class Product (
+data class Product(
     val id: String,
     val categoryId: String,
     val name: String,
